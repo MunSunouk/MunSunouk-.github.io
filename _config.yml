@@ -1,13 +1,13 @@
 # Site
 title:              Moon
 bio:                '[record sight for the insight.]'
-description:        "Moon is a minimal, one column jekyll theme for your blog."
+description:        "놀고싶어서 놀고있는 ."
 reading_time:       true
 words_per_minute:   200
 logo:               'assets/img/logo.png'
 background:         'assets/img/placeholder-big.jpg'
 tiled_bg:           false   # Set this true if you want to tile your background image, otherwise it will be covered
-locale:             en_US
+locale:             ko_KR
 url:                https://taylantatli.github.io/Moon
 
 # Jekyll
