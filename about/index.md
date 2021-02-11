@@ -16,6 +16,7 @@ comments: false
 ## Profile
 * munsunouk@gmail.com
 * 010-9594-7114
+
 ## Career
 * COCONE 글로벌센터 머신러닝 엔지니어(20.12 ~)
 
