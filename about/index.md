@@ -6,7 +6,7 @@ date: 2021-02-21
 comments: false
 ---
     
-<center><a href="http://taylantatli.github.io/Moon"><b>Moon</b></a> 데이터 분석가, 머신러닝 엔지니어.</center>
+<center> 데이터 분석가, 머신러닝 엔지니어.</center>
 
 ## Profile
 * 1995년 03월 출생
