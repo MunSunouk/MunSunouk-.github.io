@@ -1,6 +1,6 @@
 ---
 layout: page
-title: About the Sunouk Mun
+title: About Sunouk Mun
 tags: [about, Jekyll, theme, moon]
 date: 2021-02-21
 comments: false
