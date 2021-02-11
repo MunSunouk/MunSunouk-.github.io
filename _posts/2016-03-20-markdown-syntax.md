@@ -1,4 +1,4 @@
-
+~~~
 <!DOCTYPE html>
 <html>
 <head>
@@ -96,4 +96,4 @@ function displayCenterInfo(result, status) {
 </script>
 </body>
 </html>
-
+~~~
