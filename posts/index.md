@@ -1,6 +1,6 @@
 ---
-layout: post-list
-title: All Posts
-excerpt: "A List of Posts"
+layout: project-list
+title: All Project
+excerpt: "A List of Projects"
 comments: false
 ---
