@@ -105,7 +105,7 @@ comments: true
 
 ##### 데이터
 <figure>
-    <img src="/assets/img/dataset+api.png"></a>
+    <img src="/assets/img/dataset+api.png">
 </figure>
 
 내가 가지고 온 데이터는 캐글에서 크리스마스날을 기준으로 가지고 온 데이터여서 시간에 대해 많은 영향을 끼쳤던것으로 예상이 되었다.
