@@ -11,10 +11,8 @@ tag:
 - project
 comments: true
 ---
-.. image:: assets/img/youtube.jfif
-    :target: assets/img/youtube.jfif
-    :height: 300px
-    
+<center><img src="/ assets/img/youtube.jfif" width="50%" height="50%"></center>
+   
 <center>유튜브 조회수 제목에 영향을 줄까?</center>
      
  요즘들어 긴 시간을 소모해야하는 tv, 넷플릭스 보다 유튜브를 더 자주 보는것같다. 하루에도 10편 이상은 보는것 같은데, 초창기와는 다르게 점점 썸네일에 어그로(?)가 끌리는 편이다. 그래서 내 첫번째 프로젝트로 유튜브 제목과 조회수의 인과관계를 보려고 한다. 과연 영향을 줄까?
