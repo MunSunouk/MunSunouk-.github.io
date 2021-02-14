@@ -37,6 +37,7 @@ comments: true
  
  next
 
+ 전체 코드
 <center>전체 데이터 셋에서 유튜브 조회수 예측</center>
       
 ## 1. 데이터 셋
@@ -117,6 +118,308 @@ comments: true
 또 stopword 로 tokenize 하였지만 모델 결과는 binary classfication 이기 때문에 sentencepiece 를 통해 단어를 추출하였다면 어땟을까 하는 아쉬움도 들었다.
 
 ---
+
+### 전체코드
+
+```
+import pandas as pd
+import matplotlib.pyplot as plt
+%matplotlib inline
+import seaborn as sns
+import re
+import time
+import warnings
+warnings.filterwarnings('ignore')
+import numpy as np
+from sklearn.model_selection import train_test_split
+from sklearn.model_selection import GridSearchCV
+from sklearn.linear_model import LinearRegression
+from sklearn.linear_model import Lasso
+from sklearn.preprocessing import PolynomialFeatures
+from sklearn.pipeline import make_pipeline  
+from scipy import stats
+from sklearn.preprocessing import OneHotEncoder
+
+#데이터 불러오기
+us_videos = pd.read_csv(r'C:\Users\injoo\광주 인공지능 사관학교\로테이션\자연어처리&추천시스템 김준태\미니프로젝트\Dataset\cleaned_USvidoes.csv', error_bad_lines=False)
+us_videos_json = pd.read_json(r"C:\Users\injoo\광주 인공지능 사관학교\로테이션\자연어처리&추천시스템 김준태\미니프로젝트 데이터\US_category_id.json")
+
+us_videos.head(5)
+
+
+plt.figure(figsize = (12,6))
+
+plt.subplot(221)
+g1 = sns.distplot(us_videos['views'])
+g1.set_title("VIEWS DISTRIBUITION", fontsize=16)
+
+plt.subplot(222)
+g1 = sns.distplot(us_videos['likes'])
+g1.set_title("LIKES DISTRIBUITION", fontsize=16)
+
+plt.subplot(223)
+g1 = sns.distplot(us_videos['dislikes'])
+g1.set_title("DISLIKES DISTRIBUITION", fontsize=16)
+
+plt.subplot(224)
+g1 = sns.distplot(us_videos['comment_total'])
+g1.set_title("COMMENTS DISTRIBUITION", fontsize=16)
+
+plt.subplots_adjust(wspace = 0.2, hspace = 0.4,top = 0.9)
+
+plt.show()
+
+us_videos['likes_log'] = np.log(us_videos['likes'] + 1)
+us_videos['views_log'] = np.log(us_videos['views'] + 1)
+us_videos['dislikes_log'] = np.log(us_videos['dislikes'] + 1)
+us_videos['comment_log'] = np.log(us_videos['comment_total'] + 1)
+
+plt.figure(figsize = (12,6))
+
+plt.subplot(221)
+g1 = sns.distplot(us_videos['views_log'])
+g1.set_title("VIEWS LOG DISTRIBUITION", fontsize=16)
+
+plt.subplot(224)
+g2 = sns.distplot(us_videos['likes_log'],color='green')
+g2.set_title('LIKES LOG DISTRIBUITION', fontsize=16)
+
+plt.subplot(223)
+g3 = sns.distplot(us_videos['dislikes_log'], color='r')
+g3.set_title("DISLIKES LOG DISTRIBUITION", fontsize=16)
+
+plt.subplot(222)
+g4 = sns.distplot(us_videos['comment_log'])
+g4.set_title("COMMENTS LOG DISTRIBUITION", fontsize=16)
+
+plt.subplots_adjust(wspace = 0.2, hspace = 0.4,top = 0.9)
+
+plt.show()
+
+
+us_videos.columns
+
+us_videos = us_videos.drop(columns=['Unnamed: 0', 'video_id', 'tags', 'views', 'likes', 'dislikes', 'comment_total', 'date'])
+
+# int형인 categoryid를 정수로 바꾸어주었다
+us_videos
+
+#  category_id가 뭔지 가져오는 코드
+id_title_dict = {}
+items_list =  us_videos_json["items"]
+for i, key in enumerate(items_list):
+    id_title_dict[int(key["id"])] = key["snippet"]["title"]
+
+
+print(id_title_dict)
+
+us_videos['category_id'] = us_videos['category_id'].apply(lambda x: id_title_dict[x])
+us_videos
+
+us_videos = pd.get_dummies(us_videos)
+youtube = us_videos
+
+
+from sklearn.linear_model import Lasso
+views=youtube['views_log']
+youtube_view2 = youtube[['likes_log','dislikes_log','comment_log']]
+train,test,y_train,y_test=train_test_split(youtube_view2,views, test_size=0.2,shuffle=False)
+# lasso
+model_lasso = Lasso().fit(train, y_train)
+
+print("훈련 세트 점수: {:.2f}".format(model_lasso.score(train, y_train)))
+print("테스트 세트 점수: {:.2f}".format(model_lasso.score(test, y_test)))
+print("사용한 특성의 수: {}".format(   np.sum( model_lasso.coef_ != 0 )   ))
+
+from sklearn.linear_model import Lasso
+columns_without_views = list(youtube.columns.values)
+columns_without_views.remove('views_log')
+
+views=youtube['views_log']
+youtube_view2 = youtube[columns_without_views]
+
+# print(views)
+# print(youtube_view2)
+train,test,y_train,y_test=train_test_split(youtube_view2,views, test_size=0.2,shuffle=False)
+# lasso
+model_lasso = Lasso().fit(train, y_train)
+
+print("훈련 세트 점수: {:.2f}".format(model_lasso.score(train, y_train)))
+print("테스트 세트 점수: {:.2f}".format(model_lasso.score(test, y_test)))
+print("사용한 특성의 수: {}".format(   np.sum( model_lasso.coef_ != 0 )   ))
+
+views=youtube['views_log']
+youtube_view2 = youtube[['likes_log','dislikes_log','comment_log']]
+
+train,test,y_train,y_test=train_test_split(youtube_view2 ,views, test_size=0.2,shuffle=False)
+# linearRegression
+model = LinearRegression()
+model.fit(train, y_train)
+print("훈련 세트 점수: {:.2f}".format(model.score(train, y_train)))
+print("테스트 세트 점수: {:.2f}".format(model.score(test, y_test)))
+print("사용한 특성의 수: {}".format(   np.sum( model.coef_ != 0 )   ))
+
+views=youtube['views_log']
+youtube_view2 = youtube[columns_without_views]
+
+train,test,y_train,y_test=train_test_split(youtube_view2 ,views, test_size=0.2,shuffle=False)
+# linearRegression
+model = LinearRegression()
+model.fit(train, y_train)
+print("훈련 세트 점수: {:.2f}".format(model.score(train, y_train)))
+print("테스트 세트 점수: {:.2f}".format(model.score(test, y_test)))
+print("사용한 특성의 수: {}".format(   np.sum( model.coef_ != 0 )   ))
+
+from sklearn.ensemble import RandomForestRegressor
+
+views=youtube['views_log']
+youtube_view2 = youtube[['likes_log','dislikes_log','comment_log']]
+train,test,y_train,y_test=train_test_split(youtube_view2 ,views, test_size=0.2,shuffle=False)
+
+RF = RandomForestRegressor()
+RF.fit(train,y_train)
+print("훈련 세트 점수: {:.2f}".format(RF.score(train, y_train)))
+print("테스트 세트 점수: {:.2f}".format(RF.score(test, y_test)))
+
+columns_without_views = list(youtube.columns.values)
+columns_without_views.remove('views_log')
+
+views=youtube['views_log']
+youtube_view2 = youtube[columns_without_views]
+train,test,y_train,y_test=train_test_split(youtube_view2 ,views, test_size=0.2,shuffle=False)
+
+RF = RandomForestRegressor()
+RF.fit(train,y_train)
+print("훈련 세트 점수: {:.2f}".format(RF.score(train, y_train)))
+print("테스트 세트 점수: {:.2f}".format(RF.score(test, y_test)))
+
+youtube.to_csv(r'./\one_hot_encoded.csv', )
+
+```
+
+```
+from scipy import stats
+
+from collections import Counter
+from nltk.tokenize import RegexpTokenizer
+from stop_words import get_stop_words
+import re
+import nltk
+from nltk.corpus import stopwords
+from nltk import sent_tokenize, word_tokenize
+from tensorflow.keras.preprocessing.text import Tokenizer
+from tensorflow.keras.preprocessing.sequence import pad_sequences
+
+
+youtube= pd.read_csv(r'C:\Users\injoo\광주 인공지능 사관학교\로테이션\자연어처리&추천시스템 김준태\미니프로젝트\Dataset\USvideos.csv', error_bad_lines=False)
+youtube = youtube.drop_duplicates(['video_id'], keep='first')
+
+only_title = youtube['title']
+title_data = only_title
+
+title_data = title_data.str.replace("[^\w]", " ")
+#혹시나 공백이 있으면
+title_data= title_data.replace('', np.nan)
+
+#결측치 있으면 모두 제거
+title_data = title_data.dropna(how='any')
+
+youtube['views_label'] = np.log(youtube['views'] + 1)
+
+# youtube['views_label'] = youtube['views']
+
+# def label_func(x):
+#     if x>=17.69:
+#         return 1
+#     elif x>=12.50:
+#         return 2
+#     elif x>=11.33:
+#         return 3
+#     else:
+#         return 4
+
+def label_func(x):
+    if x>=12.5:
+        return 1
+    else:
+        return 0
+    
+youtube['views_label'] = youtube['views_label'].apply(lambda x: label_func(x))
+
+
+from nltk.corpus import stopwords 
+from nltk.tokenize import word_tokenize 
+
+stop_words = set(stopwords.words('english')) 
+# stop_words = set(stop_words.words('english'))
+
+X_train = []
+for stc in train:
+    token = []
+    words = stc.split()
+    for word in words:
+        if word not in stop_words:
+            token.append(word)
+    X_train.append(token)
+
+X_test = []
+for stc in test:
+    token = []
+    words = stc.split()
+    for word in words:
+        if word not in stop_words:
+            token.append(word)
+    X_test.append(token)
+
+train , test, y_train, y_test = train_test_split(title_data, youtube['views_label'], test_size=0.2, shuffle=False)
+
+tokenizer = Tokenizer(7792)
+tokenizer.fit_on_texts(X_train)
+
+X_train = tokenizer.texts_to_sequences(train)
+X_test = tokenizer.texts_to_sequences(test)
+
+from tensorflow.keras.preprocessing.sequence import pad_sequences
+
+max_len = 14
+X_train = pad_sequences(X_train, maxlen=max_len)
+X_test = pad_sequences(X_test, maxlen=max_len)
+
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import Dense, SimpleRNN, Embedding, LSTM
+model = Sequential()
+model.add(Embedding(5000, 32))
+model.add(LSTM(32))
+model.add(Dense(1, activation='relu'))
+
+model.compile(loss='binary_crossentropy', optimizer='adam', metrics= 'accuracy' )
+# model.compile(loss='categorical_crossentropy' ,optimizer='adam' ,metrics= 'accuracy' )
+model.fit(X_train, y_train, epochs=10)
+
+sentence = input()
+# 토큰화
+token_stc = sentence.split()
+# 정수 인코딩
+encode_stc = tokenizer.texts_to_sequences([token_stc])
+# 패딩
+pad_stc = pad_sequences(encode_stc, maxlen = 14)
+
+score = model.predict(pad_stc)
+print(score)
+
+sentence = input()
+# 토큰화
+token_stc = sentence.split()
+# 정수 인코딩
+encode_stc = tokenizer.texts_to_sequences([token_stc])
+# 패딩
+pad_stc = pad_sequences(encode_stc, maxlen = 14)
+
+score = model.predict(pad_stc)
+print(score)
+
+```
+
 
 재미있게 보셨다면 눌러주세요
 
