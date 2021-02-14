@@ -42,7 +42,7 @@ comments: true
 ## 1. 데이터 셋
 
 <figure>
-    <img src="/assets/img/dataset1.png"></a>
+    <img src="/assets/img/dataset1.png">
 </figure>
 
 ## 2. 데이터 전처리 과정
