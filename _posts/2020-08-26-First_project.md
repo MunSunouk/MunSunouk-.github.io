@@ -102,6 +102,7 @@ comments: true
 
 #### next
 이 프로젝트를 되돌아 보며 아쉬운점이 참 많았는데 그 중 2가지를 꼽자면 데이터, 모델 분야라 할수있었다.
+
 ##### 데이터
 <figure>
     <img src="/assets/img/dataset+api.png"></a>
@@ -119,4 +120,4 @@ comments: true
 
 재미있게 보셨다면 눌러주세요
 
-<iframe src="https://ghbtns.com/github-btn.html?user=TaylanTatli&repo=Moon&type=star&count=true&size=large" frameborder="0" scrolling="0" width="160px" height="30px"></iframe>
+<iframe src="https://ghbtns.com/github-btn.html?user=MunSunouk&repo=MunSunouk.github.io&type=star&count=true&size=large" frameborder="0" scrolling="0" width="160px" height="30px"></iframe>
