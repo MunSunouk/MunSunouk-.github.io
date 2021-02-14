@@ -8,6 +8,7 @@ tag:
 - Youtube 
 - blog
 - about
+- project
 comments: true
 ---
 
