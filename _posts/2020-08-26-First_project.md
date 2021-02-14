@@ -11,7 +11,7 @@ tag:
 - project
 comments: true
 ---
-<center><img src="/assets/img/youtube.png" width="50%" height="50%"></center>
+<center><img src="/assets/img/youtube.png"></center>
    
 <center>유튜브 조회수 제목에 영향을 줄까?</center>
      
