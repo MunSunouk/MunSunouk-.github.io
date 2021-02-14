@@ -11,7 +11,7 @@ tag:
 - project
 comments: true
 ---
-<center><img src="/assets/img/youtube.png"></center>
+<center><img src="/assets/img/youtube_view/youtube.png"></center>
    
 <center>유튜브 조회수 제목에 영향을 줄까?</center>
      
@@ -49,17 +49,17 @@ comments: true
 ## 2. 데이터 전처리 과정
 
 <figure>
-	<img src="/assets/img/data_preprocess1.png">
-	<img src="/assets/img/data_preprocess2.png">
-	<img src="/assets/img/data_preprocess3.png">
+	<img src="/assets/img/youtube_view/data_preprocess1.png">
+	<img src="/assets/img/youtube_view/data_preprocess2.png">
+	<img src="/assets/img/youtube_view/data_preprocess3.png">
 </figure>
     
 ## 3. 모델
 
 <figure class="third">
-	<img src="/assets/img/model_result1.png">
-	<img src="/assets/img/model_result2.png">
-	<img src="/assets/img/model_result3.png">
+	<img src="/assets/img/youtube_view/model_result1.png">
+	<img src="/assets/img/youtube_view/model_result2.png">
+	<img src="/assets/img/youtube_view/model_result3.png">
 </figure>
 ---
 
@@ -68,21 +68,21 @@ comments: true
 ## 1. 데이터 셋
 
 <figure>
-    <img src="/assets/img/dataset1.png">
+    <img src="/assets/img/youtube_view/dataset1.png">
 </figure>
 
 ## 2. 데이터 전처리 과정
 
 <figure class="second">
-	<img src="/assets/img/data_preprocess4.png">
-	<img src="/assets/img/data_eda2.png">
+	<img src="/assets/img/youtube_view/data_preprocess4.png">
+	<img src="/assets/img/youtube_view/data_eda2.png">
 </figure>
 ## 3. 모델
 
 <figure class="third">
-	<img src="/assets/img/modeling2.png">
-	<img src="/assets/img/model_test1.png">
-	<img src="/assets/img/model_test2.png">
+	<img src="/assets/img/youtube_view/modeling2.png">
+	<img src="/assets/img/youtube_view/model_test1.png">
+	<img src="/assets/img/youtube_view/model_test2.png">
 </figure>
 ---
 
@@ -91,9 +91,9 @@ comments: true
 
 ## 1. 데이터 셋
 <figure class="third">
-	<img src="/assets/img/dataset1.png">
-	<img src="/assets/img/like_destribution.png">
-	<img src="/assets/img/like_destribution_result.png">
+	<img src="/assets/img/youtube_view/dataset1.png">
+	<img src="/assets/img/youtube_view/like_destribution.png">
+	<img src="/assets/img/youtube_view/like_destribution_result.png">
 </figure>
 
 
@@ -106,7 +106,7 @@ comments: true
 
 ##### 데이터
 <figure>
-    <img src="/assets/img/dataset+api.png">
+    <img src="/assets/img/youtube_view/dataset+api.png">
 </figure>
 
 내가 가지고 온 데이터는 캐글에서 크리스마스날을 기준으로 가지고 온 데이터여서 시간에 대해 많은 영향을 끼쳤던것으로 예상이 되었다.
