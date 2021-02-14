@@ -47,7 +47,7 @@ comments: true
 
 ## 2. 데이터 전처리 과정
 
-<figure class="third">
+<figure>
 	<img src="/assets/img/data_preprocess1.png">
 	<img src="/assets/img/data_preprocess2.png">
 	<img src="/assets/img/data_preprocess3.png">
