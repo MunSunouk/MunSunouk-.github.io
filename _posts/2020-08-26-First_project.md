@@ -11,7 +11,7 @@ tag:
 - project
 comments: true
 ---
-<center><img src="/ assets/img/youtube.png" width="50%" height="50%"></center>
+<center><img src="/assets/img/youtube.png" width="50%" height="50%"></center>
    
 <center>유튜브 조회수 제목에 영향을 줄까?</center>
      
@@ -42,26 +42,24 @@ comments: true
 ## 1. 데이터 셋
 
 <figure>
-	<a href="https://drive.google.com/file/d/1PeLtTs1x2YU0euNuqNkTQp85Z8rGXtZ1/view?usp=sharing"><img src="https://drive.google.com/file/d/1PeLtTs1x2YU0euNuqNkTQp85Z8rGXtZ1/view?usp=sharing"></a>
+    <img src="/assets/img/dataset1.png"></a>
 </figure>
 
 ## 2. 데이터 전처리 과정
 
-{% capture Data_images1 %}
-	https://drive.google.com/file/d/11B1m-xTjKynpRxvmNyiKjX0vDuoiOkXe/view?usp=sharing
-	https://drive.google.com/file/d/1JP-dEMVfgd0DxEjh8L-Du2NeOkFhv9Pm/view?usp=sharing
-	https://drive.google.com/file/d/1M-JmBheY_IKy9EaRQEIONR1HkZ3mmBeD/view?usp=sharing
-{% endcapture %}
-{% include gallery images=Data_images1 cols=3 %}
+<figure class="third">
+	<img src="/assets/img/data_preprocess1.png">
+	<img src="/assets/img/data_preprocess2.png">
+	<img src="/assets/img/data_preprocess3.png">
+</figure>
     
 ## 3. 모델
 
-{% capture Model_images1 %}
-	https://drive.google.com/file/d/1jzrj6Wde6didf8jJh4z11oyVXaR9_qu8/view?usp=sharing
-	https://drive.google.com/file/d/1Iq6xZUCw-GNGA-ej7bXUrnxpUVfDiLbO/view?usp=sharing
-	https://drive.google.com/file/d/1WluFlUf_wCXtYswSMJ1PDYLkagiYoc9Q/view?usp=sharing
-{% endcapture %} 
-{% include gallery images=Model_images1 cols=3 %}
+<figure class="third">
+	<img src="/assets/img/model_result1.png">
+	<img src="/assets/img/model_result2.png">
+	<img src="/assets/img/model_result3.png">
+</figure>
 ---
 
 <center>댓글 데이터로 좋아요를 예측하는 알고리즘</center>
@@ -69,31 +67,34 @@ comments: true
 ## 1. 데이터 셋
 
 <figure>
-	<a href="https://drive.google.com/file/d/18DM1VFKzlajCpjC9wvj40tZYJmRRSye2/view?usp=sharing"><img src="https://drive.google.com/file/d/18DM1VFKzlajCpjC9wvj40tZYJmRRSye2/view?usp=sharing"></a>
+    <img src="/assets/img/dataset1.png"></a>
 </figure>
 
 ## 2. 데이터 전처리 과정
 
-{% capture Data_images2 %}
-	https://drive.google.com/file/d/1PvH8nNz5rdqnAfbzjNa6jMiUmoSGjGxH/view?usp=sharing
-	https://drive.google.com/file/d/1GE0A7vI-OzjCTis2K5-bu-IW5YQ7EkHb/view?usp=sharing
-{% endcapture %}
-{% include gallery images=Data_images1 cols=3 %}
+<figure class="second">
+	<img src="/assets/img/data_preprocess4.png">
+	<img src="/assets/img/data_eda2.png">
+</figure>
 ## 3. 모델
 
-{% capture Model_images2 %}
-	https://drive.google.com/file/d/1r8nFmlX1E5e8_TX1ivNR0uYSUwzcb5J4/view?usp=sharing
-	https://drive.google.com/file/d/1qNalU09VZ1BFh83KwJNOveY97BRKdaWy/view?usp=sharing
-  https://drive.google.com/file/d/1xl7KeEWvd-1AnRGFzuJ3UFgBE1ny01p4/view?usp=sharing
-{% endcapture %}
-{% include gallery images=Model_images2 cols=3 %}
+<figure class="third">
+	<img src="/assets/img/modeling2.png">
+	<img src="/assets/img/model_test1.png">
+	<img src="/assets/img/model_test2.png">
+</figure>
+---
 
 <center>전체 데이터 셋에서 유튜브 조회수 예측</center>
 
+
 ## 1. 데이터 셋
-<figure>
-	<a href="https://drive.google.com/file/d/1PeLtTs1x2YU0euNuqNkTQp85Z8rGXtZ1/view?usp=sharing"><img src="https://drive.google.com/file/d/1PeLtTs1x2YU0euNuqNkTQp85Z8rGXtZ1/view?usp=sharing"></a>
+<figure class="third">
+	<img src="/assets/img/dataset1.png">
+	<img src="/assets/img/like_destribution.png">
+	<img src="/assets/img/like_destribution_result.png">
 </figure>
+
 
 ### 느낀점
 간단한 LSTM 모델로 정확한 유튜브 조회수를 예측하기는 힘들지만 나름 성과가 있었고, 
@@ -103,7 +104,7 @@ comments: true
 이 프로젝트를 되돌아 보며 아쉬운점이 참 많았는데 그 중 2가지를 꼽자면 데이터, 모델 분야라 할수있었다.
 ##### 데이터
 <figure>
-	<a href="https://drive.google.com/file/d/1P-dUNqe4HjVb8a95Fgo_jNGYz4NRjpvA/view?usp=sharing"><img src="https://drive.google.com/file/d/1P-dUNqe4HjVb8a95Fgo_jNGYz4NRjpvA/view?usp=sharing"></a>
+    <img src="/assets/img/dataset+api.png"></a>
 </figure>
 
 내가 가지고 온 데이터는 캐글에서 크리스마스날을 기준으로 가지고 온 데이터여서 시간에 대해 많은 영향을 끼쳤던것으로 예상이 되었다.
