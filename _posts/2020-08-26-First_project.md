@@ -11,7 +11,9 @@ tag:
 - project
 comments: true
 ---
-
+.. image:: assets/img/youtube.jfif
+    :target: assets/img/youtube.jfif
+    :height: 300px
     
 <center>유튜브 조회수 제목에 영향을 줄까?</center>
      
