@@ -1,9 +1,13 @@
 ---
 layout: post
-title:  "Moon Jekyll Theme"
+title:  "유튜브 조회수도 과학이다"
 date:   2020-08-26
-excerpt: "Minimal, one column Jekyll theme for your blog."
+excerpt: "자극적인 제목만이 답일까?"
 project: true
+tag:
+- Youtube 
+- blog
+- about
 comments: true
 ---
 
