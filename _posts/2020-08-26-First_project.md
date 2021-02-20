@@ -56,7 +56,7 @@ comments: true
     
 ## 3. 모델
 
-<figure class="third">
+<figure>
 	<img src="/assets/img/youtube_view/model_result1.png">
 	<img src="/assets/img/youtube_view/model_result2.png">
 	<img src="/assets/img/youtube_view/model_result3.png">
@@ -73,13 +73,13 @@ comments: true
 
 ## 2. 데이터 전처리 과정
 
-<figure class="second">
+<figure >
 	<img src="/assets/img/youtube_view/data_preprocess4.png">
 	<img src="/assets/img/youtube_view/data_eda2.png">
 </figure>
 ## 3. 모델
 
-<figure class="third">
+<figure >
 	<img src="/assets/img/youtube_view/modeling2.png">
 	<img src="/assets/img/youtube_view/model_test1.png">
 	<img src="/assets/img/youtube_view/model_test2.png">
@@ -90,7 +90,7 @@ comments: true
 
 
 ## 1. 데이터 셋
-<figure class="third">
+<figure>
 	<img src="/assets/img/youtube_view/dataset1.png">
 	<img src="/assets/img/youtube_view/like_destribution.png">
 	<img src="/assets/img/youtube_view/like_destribution_result.png">
