@@ -29,7 +29,7 @@ comments: false
 ## Personal & Team Project
 <center><a href="https://munsunouk.github.io//First_project/"><b>* Team youtube_watcher, youtube view Research (팀장)</b></a></center>
 
-* Team Runup Fashion recommendation & Sales (팀장)
+* Team 8, Fashion recommendation & Sales (팀장)
 
 * Team GGul 냉장고 재료 기반 레시피 추천 웹사이트 (팀장)
 
