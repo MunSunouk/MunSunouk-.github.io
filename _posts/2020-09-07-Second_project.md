@@ -148,7 +148,7 @@ def get_soup(area,latitude,longitude,page):
         'User-Agent': "PostmanRuntime/7.20.0",
         'Accept': "*/*",
         'Cache-Control': "no-cache",
-        'Postman-Token': "adbba748-cb85-4fb4-8f6a-4be441f19cc3",
+        'Postman-Token': "토큰 생성후 ",
         'Host': "m.land.naver.com",
         'Accept-Encoding': "gzip, deflatitudee",
         'Connection': "keep-alive",
