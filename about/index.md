@@ -33,4 +33,4 @@ comments: false
 
 * Team GGul 냉장고 재료 기반 레시피 추천 웹사이트 (팀장)
 
-<center><a href="https://github.com/MunSunouk/MunSunouk.github.io/blob/master/_posts/2020-09-07-Second_project.md"><b>** Team GGul 상권분석 웹서비스 (팀장)</b></a></center>
+<center><a href="https://munsunouk.github.io//Second_project/"><b>** Team GGul 상권분석 웹서비스 (팀장)</b></a></center>
